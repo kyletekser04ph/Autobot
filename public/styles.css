@@ -198,8 +198,8 @@ body {
 .container {
      color: #FFFFFF;
      background: transparent;
-     border-radius: 15px;
-     padding: 20px;
+     border-radius: 10px;
+     padding: 15px;
      margin-top: 20px;
      margin-bottom: 20px;
      outline: 2px solid #FFFFFF;

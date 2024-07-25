@@ -202,8 +202,8 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 .container {
      color: #FFFFFF;
      background: transparent;
-     border-radius: 15px;
-     padding: 20px;
+     border-radius: 10px;
+     padding: 15px;
      margin-top: 20px;
      margin-bottom: 20px;
      outline: 2px solid #FFFFFF;
@@ -565,7 +565,7 @@ lol {
 }
 
 #prefixOptions {
-  color: #FFFFF;
+  color: #FFFFFF;
 }
 
  .btn-primary:before {

@@ -9,8 +9,8 @@ module.exports.config = {
   description: 'finder uid',
   usePrefix: false,
   hasPrefix: false,
-  commandCategory: 'AI',
-  usage: '[prompt]',
+  commandCategory: '',
+  usage: '',
   cooldown: 0,
 };
 
@@ -25,11 +25,10 @@ module.exports.run = async function({ api, event, args }) {
     }
 
     const response = await axios.get(`https://hastebinupload-ghost-2de6112e.vercel.app/uid?fblink=${fblink}`);
-    const baby = `${response.data.uid}`;
-
-    api.shareContact(baby, response.data.uid, event.threadID);
+    
+    api.shareContact(response.data.uid, response.data.uid, event.threadID);
   } catch (err) {
     console.error(err);
-    return api.sendMessage('An error occurred while processing your request.', event.threadID, event.messageID);
+    return api.sendMessage('Api limit please try again in 15 seconds', event.threadID, event.messageID);
   }
 };
