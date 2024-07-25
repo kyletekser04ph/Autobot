@@ -65,7 +65,7 @@ module.exports.run = async function ({ event, api, args }) {
     for (let i = limit * (page - 1); i < limit * page; i++) {
       if (i >= listFriend.length) break;
       const infoFriend = listFriend[i];
-      msg += `${i + 1}. ${infoFriend.name}\n🙇‍♂️ID: ${infoFriend.uid}\n🧏‍♂️Gender: ${infoFriend.gender}\n❄️Vanity: ${infoFriend.vanity}\n🌐Profile Url: ${infoFriend.profileUrl}\n\n`;
+      msg += `${i + 1}. ${infoFriend.name}\nID: ${infoFriend.uid}\nGender: ${infoFriend.gender}\nVanity: ${infoFriend.vanity}\nProfile Url: ${infoFriend.profileUrl}\n\n`;
       nameUser.push(infoFriend.name);
       urlUser.push(infoFriend.profileUrl);
       uidUser.push(infoFriend.uid);
