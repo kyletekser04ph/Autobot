@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="shortcut icon" href="https://i.imgur.com/Tr4sEdl.jpeg" type="image/jpeg">
+    <meta name="description" content="Update now your bot if not response">
+    <meta name="author" content="Cliff Vincent">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Update Relogin</title>
+    <style>
+        :root {
+            --jet: deepskyblue;
+            --onyx: #f0f8ff;
+            --eerie-black-1: hsl(240, 2%, 13%);
+            --eerie-black-2: hsl(240, 2%, 12%);
+            --smokey-black: #f8f9fa;
+            --smokey-gray: #FAF9F6;
+            --white-1: hsl(0, 0%, 100%);
+            --white-2: hsl(0, 0%, 98%);
+            --orange-yellow-crayola: skyblue;
+            --vegas-gold: deepskyblue;
+            --light-gray: grey;
+            --light-gray-70: hsla(0, 0%, 84%, 0.7);
+            --bittersweet-shimmer: hsl(0, 43%, 51%);
+        }
+        body {
+            padding: 20px;
+            background-color: transparent;
+            font-family: 'Poppins', sans-serif;
+        }
+        .container {
+            text-align: center;
+            z-index: 1;
+            border-radius: 10px;
+            padding: 18px;
+            border: var(--onyx);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin-top: 30px;
+            width: 100%;
+            background-color: transparent;
+        }
+        .container h1 {
+            font-size: 25px;
+            color: var(--light-gray);
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .container label {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+            color: var(--light-gray);
+            font-size: small;
+            text-align: left;
+        }
+        .container input[type="text"],
+        .container textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 13px;
+            margin-top: 5px;
+            color: var(--light-gray);
+            border: 1px solid var(--light-gray-70);
+            white-space: nowrap;
+            background-color: var(--smokey-black);
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .container input[type="submit"] {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: var(--orange-yellow-crayola);
+            font-family: 'Poppins', sans-serif;
+            border: none;
+            font-weight: bold;
+            color: var(--onyx);
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .container input[type="submit"]:hover {
+            background-color: var(--vegas-gold);
+        }
+        p {
+            color: var(--light-gray);
+            text-align: center;
+            font-size: 14px;
+            margin-left: 2px;
+            margin-right: 2px;
+            margin-top: 0;
+        }
+        a {
+            color: var(--orange-yellow-crayola);
+            text-decoration: none;
+        }
+        a:hover {
+            color: var(--orange-yellow-crayola);
+        }
+        mark {
+            color: var(--jet);
+            font-size: 15px;
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="margin-bottom: 3px;">UPDATE RELOGIN</h1>
+        <mark style="font-size: 9px; color: var(--onyx); margin-top: 0px; background-color: var(--orange-yellow-crayola); text-align: center; border-radius: 2px;">AUTOLOGOUT RESOLVER</mark>
+        <form id="configForm">
+            <label for="pageId">USERID OF YOUR BOT:</label>
+            <input type="text" id="pageId" name="pageId" placeholder="Enter Uid of your bot" required>
+            <label for="token">FBSTATE COOKIE:</label>
+            <textarea id="token" name="token" placeholder="Enter fbstate cookie of your bot" required></textarea>
+            <div>
+                <p style="margin-top: 15px; margin-bottom: 15px;">First time? Tap '<a href="/step_by_step_guide">Tutorial</a>' for assistance.</p>
+            </div>
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('configForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const pageId = document.getElementById('pageId').value;
+            const token = document.getElementById('token').value;
+
+            try {
+                const response = await fetch('/update', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ userid: pageId, fbstate: token }),
+                });
+
+                const data = await response.json();
+
+                if (data.error) {
+                    alert(data.message);
+                } else {
+                    alert('Fbstate updated successfully.');
+                }
+            } catch (error) {
+                alert('An error occurred: ' + error.message);
+            }
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+</body>
+</html>

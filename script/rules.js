@@ -17,7 +17,7 @@ Your group rules:
 4. LGBTQ+ SUPPORT IS STRICTLY PROHIBITED
 5. Do not use disrespectful words to each other
 6. Error reports must be included with photos or videos
-7. Please do not use languages other than Bangla and English
+7. Please do not use languages other than tagalog and English
 8. No simping allowed
 9. Don't mention @everyone
 10. Don't talk about other bots without admin's permission
@@ -29,8 +29,7 @@ Your group rules:
 16. Don't use Gemini for games
 17. Don't create or make albums without explicit permission
 18. No 18+
-19. Don't mention Cliff at night
-`;
+19. Don't mention Cliff at night`;
 
 module.exports.run = async function ({ api, event }) {
   api.sendMessage(rules, event.threadID, event.messageID);

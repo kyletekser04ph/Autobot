@@ -417,7 +417,7 @@ module.exports = function (defaultFuncs, api, ctx) {
       source: "source:chat:web",
       "source_tags[0]": "source:chat",
       body: msg.body ? msg.body.toString() : "",
-      html_body: true,
+      html_body: false,
       ui_push_phase: "V3",
       status: "0",
       offline_threading_id: messageAndOTID,

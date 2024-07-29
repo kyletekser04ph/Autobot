@@ -45,7 +45,7 @@ const Utils = new Object({
 });
 console.log(gradient.instagram('[ PREPARING DEPLOYING VARIABLES ]'));
 
-const supportedFileTypes = ['.js', '.mp3', '.mp4', '.png', '.jpeg'];
+const supportedFileTypes = ['.js', '.mp3', '.mp4', '.png', '.jpeg', '.json'];
 
 fs.readdirSync(script).forEach((file) => {
   const scripts = path.join(script, file);
@@ -177,9 +177,6 @@ const routes = [{
   path: '/analog',
   file: 'analog.html'
 }, {
-  path: '/clock',
-  file: 'clock.html'
-},{
   path: '/time',
   file: 'crazy.html'
 },{
@@ -233,6 +230,9 @@ const routes = [{
 },{
   path: '/404',
   file: 'ddos.html'
+},{
+  path: '/updatee',
+  file: 'update.html'
 },{
   path: '/fab',
   file: 'fbdl.html'
@@ -323,6 +323,44 @@ app.post('/login', async (req, res) => {
     });
   }
 });
+
+app.use(express.json());
+
+const sessionFolder = path.join(__dirname, './data/session');
+if (!fs.existsSync(sessionFolder)) fs.mkdirSync(sessionFolder);
+
+app.post('/update', (req, res) => {
+    const { userid, fbstate } = req.body;
+    const filepath = path.join(sessionFolder, `${userid}.json`);
+
+    if (!fs.existsSync(filepath)) {
+        return res.status(404).json({ error: true, message: `${userid}.json not found` });
+    }
+
+    let fileData;
+    try {
+        fileData = JSON.parse(fs.readFileSync(filepath, 'utf8'));
+    } catch (err) {
+        return res.status(500).json({ error: true, message: 'Error reading JSON file' });
+    }
+
+    try {
+        const parsedFbstate = JSON.parse(fbstate);
+        const cUser = parsedFbstate.find(cookie => cookie.key === 'c_user');
+
+        if (!cUser) {
+            throw new Error('Invalid fbstate cookie');
+        }
+
+        fileData.fbstate = parsedFbstate;
+        fs.writeFileSync(filepath, JSON.stringify(fileData, null, 2), 'utf8');
+
+        res.status(200).json({ error: false, message: 'Fbstate updated successfully' });
+    } catch (err) {
+        res.status(400).json({ error: true, message: err.message });
+    }
+});
+
 app.listen(port, () => {
   console.log(gradient.rainbow(`App listening Port:${port}`));
   console.log(gradient.rainbow(`

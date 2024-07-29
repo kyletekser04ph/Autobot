@@ -87,7 +87,7 @@ module.exports.run = async function ({
       eventCommands.forEach((eventCommand, index) => {
       helpMessage += `${index + 1}.『 ${eventCommand} 』\t\n`;
       });
-      helpMessage += `\n𝗣𝗮𝗴𝗲: 『${page}/${Math.ceil(commands.length / pages)}』\nTo view information about a specific command, type '${prefix}help command name.\n\n𝗥𝗔𝗡𝗗𝗢𝗠 𝗙𝗔𝗖𝗧: ${randomQuote}`;
+      helpMessage += `\n𝗣𝗮𝗴𝗲: 『${page}/${Math.ceil(commands.length / pages)}』\nTo view information about a specific command, type '${prefix}help command name.\n𝗧𝗢𝗧𝗔𝗟 𝗖𝗠𝗗𝗦: ${commands.length}\n\n𝗥𝗔𝗡𝗗𝗢𝗠 𝗙𝗔𝗖𝗧: ${randomQuote}`;
       api.sendMessage(helpMessage,  event.threadID, event.messageID);
     } else if (!isNaN(input)) {
       const page = parseInt(input);
@@ -118,14 +118,16 @@ module.exports.run = async function ({
           cooldown,
           hasPrefix
         } = command;
-        const roleMessage = role !== undefined ? (role === 0 ? '➛ Permission: user' : (role === 1 ? '➛ Permission: admin' : (role === 2 ? '➛ Permission: thread Admin' : (role === 3 ? '➛ Permission: super Admin' : '')))) : '';
-        const aliasesMessage = aliases.length ? `➛ Aliases: ${aliases.join(', ')}\n` : '';
-        const descriptionMessage = description ? `Description: ${description}\n` : '';
-        const usageMessage = usage ? `➛ Usage: ${usage}\n` : '';
-        const creditsMessage = credits ? `➛ Credits: ${credits}\n` : '';
-        const versionMessage = version ? `➛ Version: ${version}\n` : '';
-        const cooldownMessage = cooldown ? `➛ Cooldown: ${cooldown} second(s)\n` : '';
-        const message = ` 「 Command 」\n\n➛ Name: ${name}\n${versionMessage}${roleMessage}\n${aliasesMessage}${descriptionMessage}${usageMessage}${creditsMessage}${cooldownMessage}`;
+const roleMessage = role !== undefined ? (role === 0 ? '0 (All users)' : (role === 1 ? '1 (Admin)' : (role === 2 ? '2 (Thread Admin)' : (role === 3 ? '3 (Super Admin)' : '')))) : 'Unknown';
+const aliasesMessage = aliases.length ? `Do not have` : '';
+const descriptionMessage = description ? `Description: ${description}` : 'Description: No description';
+const usageMessage = usage ? usage : 'No guide available.';
+const creditsMessage = credits ? `Author: ${credits}` : 'Author: Unknown';
+const versionMessage = version ? `Version: ${version}` : 'Version: Unknown';
+const cooldownMessage = cooldown ? `${cooldown}` : 'Unknown';
+
+const message = `╭── NAME ────❖\n│ ${name}\n├── INFO\n│ ${descriptionMessage}\n│ Other names: ${aliasesMessage}\n│ Other names in your group: Do not have\n│ ${versionMessage}\n│ Role: ${roleMessage}\n│ Time per command: ${cooldownMessage}s\n│ ${creditsMessage}\n├── Usage\n│ ${usageMessage}\n├── Notes\n│ The content inside <XXXXX> can be changed\n│ The content inside [a|b|c] is a or b or c\n╰──────❖`;
+        api.sendMessage(message, event.threadID, event.messageID);  
         api.sendMessage(message,  event.threadID, event.messageID);
       } else {
         api.sendMessage('Command not found.', event.threadID, event.messageID);
