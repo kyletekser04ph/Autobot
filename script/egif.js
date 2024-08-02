@@ -20,7 +20,7 @@ commandCategory: "gif",
 module.exports.run = async function ({ api, args, event }) {
   try {
     const emoji = encodeURIComponent(args.join(" "));
-    const apiUrl = `https://samirxpikachu.onrender.com/egif?emoji=${emoji}`;
+    const apiUrl = `https://www.samirxpikachu.run.place/egif?emoji=${emoji}`;
 
     const gifUrl = await getStreamFromURL(apiUrl);
 

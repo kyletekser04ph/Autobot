@@ -9,7 +9,7 @@ module.exports.config = {
 	name: "badwords",
 	version: "1.0.0",
 	role: 2,
-	credits: "Jonell Magallanes", //converted by cliff
+	credits: "Jonell Magallanes",
 	description: "Manage and enforce banned words",
 	hasPrefix: false,
 	usePrefix: false,

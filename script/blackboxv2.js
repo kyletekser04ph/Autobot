@@ -18,7 +18,7 @@ if (!query) {
           return api.sendMessage('Please provide a question first!', event.threadID, event.messageID);
       }
 
-      const cliff = await new Promise(resolve => { api.sendMessage('𝗕𝗟𝗔𝗖𝗞𝗕𝗢𝗫 (𝐀𝐈 ASSISTANT)\n▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱\n🔍 Searching Please Wait....', event.threadID, (err, info1) => {
+      const cliff = await new Promise(resolve => { api.sendMessage('𝗕𝗟𝗔𝗖𝗞𝗕𝗢𝗫 (ASSISTANT)\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n🔍 Searching Please Wait....', event.threadID, (err, info1) => {
       resolve(info1);
      }, event.messageID);
     });
@@ -28,7 +28,7 @@ if (!query) {
   try {
       const response = await axios.get(apiUrl);
       const ans = response.data.blackbox;   
-    api.editMessage(`𝗕𝗟𝗔𝗖𝗞𝗕𝗢𝗫 (𝐀𝐈 ASSISTANT)\n▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱\n${ans}`, cliff.messageID);
+    api.editMessage(`𝗕𝗟𝗔𝗖𝗞𝗕𝗢𝗫 (𝐀𝐈 ASSISTANT)\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n${ans}`, cliff.messageID);
   } catch (error) {
     console.error("Error:", error);
     api.sendMessage("An error occurred while fetching the response.", event.threadID, event.messageID);

@@ -18,7 +18,7 @@ if (!query) {
           return api.sendMessage('Please provide a question first!', event.threadID, event.messageID);
       }
 
-      const cliff = await new Promise(resolve => { api.sendMessage('𝗕𝗟𝗔𝗖𝗞𝗕𝗢𝗫 (𝐀𝐈 𝐂𝐎𝐃𝐄 𝐆𝐄𝐍𝐄𝐑𝐀𝐓𝐈𝐎𝐍)\n▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱\n🔍 Searching Please Wait....', event.threadID, (err, info1) => {
+      const cliff = await new Promise(resolve => { api.sendMessage('𝗕𝗟𝗔𝗖𝗞𝗕𝗢𝗫\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n🔍 Searching Please Wait....', event.threadID, (err, info1) => {
       resolve(info1);
      }, event.messageID);
     });
@@ -29,7 +29,7 @@ if (!query) {
     const response = await axios.get(apiUrl);
     const ans = response.data.response;
     const cleanResponseData = ans.replace(/\n\nIs this answer helpful to you\? Kindly click the link below\nhttps:\/\/click2donate.kenliejugarap.com\n\(Clicking the link and clicking any ads or button and wait for 30 seconds \(3 times\) everyday is a big donation and help to us to maintain the servers, last longer, and upgrade servers in the future\)/, '');
-    api.editMessage(`𝗕𝗟𝗔𝗖𝗞𝗕𝗢𝗫 (𝐀𝐈 𝐂𝐎𝐃𝐄 𝐆𝐄𝐍𝐄𝐑𝐀𝐓𝐈𝐎𝐍)\n▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱\n${ans}`, cliff.messageID);
+    api.editMessage(`𝗕𝗟𝗔𝗖𝗞𝗕𝗢𝗫\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n${ans}`, cliff.messageID);
   } catch (error) {
     console.error("Error:", error);
     api.sendMessage("An error occurred while fetching the response.", event.threadID, event.messageID);

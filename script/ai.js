@@ -46,9 +46,9 @@ module.exports.run = async function ({ api, event, args }) {
       console.error("Error:", err);
       return;
     }
-        const reminder = "When your bot doesn't work anymore, it means the server is off or I updated to the latest commands and the API is dead. Go back to the link:\nhttp://192.210.175.9:5037/\nhttps://main--autobot-psi-moshimosh.netlify.app";
+      
     const answer = data.gpt;
-    const msg = `𝗚𝗣𝗧-𝟰 (ARCHITECTURE)\n▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱\n${answer}\n▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱`;
+    const msg = `𝗚𝗣𝗧-𝟰 (ARCHITECTURE)\n▱▱▱▱▱▱▱▱▱▱▱▱▱▱▱\n${answer}`;
     try {
       await api.editMessage(msg, cliff.messageID);
     } catch (error) {

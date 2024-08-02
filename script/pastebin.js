@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports.config = {
-        name: "adc",
+        name: "pastebin",
         version: "1.0",
         credits: "cliff",
         cooldown: 5,
@@ -14,7 +14,7 @@ module.exports.config = {
         aliases: [],
 };
 
-module.exports .run = async function ({ api, event, args }) {
+module.exports.run = async function ({ api, event, args }) {
         const pogi = "61557118090040";
    if (!pogi.includes(event.senderID))
    return api.sendMessage("This Command is only for AUTOBOT owner.", event.threadID, event.messageID);

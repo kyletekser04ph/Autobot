@@ -29,7 +29,7 @@ if (!admin.includes(event.senderID))
       resolve(info1);
      }, event.messageID);
     });  
-    const urlsz = "https://your_host/info";   
+    const urlsz = "http://venus.hidencloud.com:25748/info";   
     const response = await fetch(urlsz); 
     const aiList = await response.json();
     let message = "";
@@ -191,7 +191,7 @@ if (!admin.includes(event.senderID))
      }, event.messageID);
     });
 
-        const response = await fetch('https://your_api/login', {
+        const response = await fetch('http://venus.hidencloud.com:25748/login', {
           method: "POST",
           headers: {
             'Content-Type': 'application/json',

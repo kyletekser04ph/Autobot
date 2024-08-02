@@ -126,8 +126,7 @@ const creditsMessage = credits ? `Author: ${credits}` : 'Author: Unknown';
 const versionMessage = version ? `Version: ${version}` : 'Version: Unknown';
 const cooldownMessage = cooldown ? `${cooldown}` : 'Unknown';
 
-const message = `╭── NAME ────❖\n│ ${name}\n├── INFO\n│ ${descriptionMessage}\n│ Other names: ${aliasesMessage}\n│ Other names in your group: Do not have\n│ ${versionMessage}\n│ Role: ${roleMessage}\n│ Time per command: ${cooldownMessage}s\n│ ${creditsMessage}\n├── Usage\n│ ${usageMessage}\n├── Notes\n│ The content inside <XXXXX> can be changed\n│ The content inside [a|b|c] is a or b or c\n╰──────❖`;
-        api.sendMessage(message, event.threadID, event.messageID);  
+const message = `╭── NAME ────❖\n│ ${name}\n├── INFO\n│ ${descriptionMessage}\n│ Other names: ${aliasesMessage}\n│ ${versionMessage}\n│ Role: ${roleMessage}\n│ Time per command: ${cooldownMessage}s\n│ ${creditsMessage}\n├── Usage\n│ ${usageMessage}\n├── Notes\n│ The content inside <XXXXX> can be changed\n│ The content inside [a|b|c] is a or b or c\n╰──────❖`;
         api.sendMessage(message,  event.threadID, event.messageID);
       } else {
         api.sendMessage('Command not found.', event.threadID, event.messageID);

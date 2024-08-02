@@ -40,7 +40,7 @@ module.exports.run = async function({ api, event, args }) {
   }
 
   try {
-    const apiUrl = `https://joshweb.click/canvas/fbpost?uid=${event.senderID}&text=${encodeURIComponent(text)}&name=${name}`;
+    const apiUrl = `https://ggwp-yyxy.onrender.com/canvas/fbpost?uid=${event.senderID}&text=${encodeURIComponent(text)}&name=${name}`;
 
     const response = await axios.get(apiUrl, { responseType: 'arraybuffer' });
     const coverPhotoPath = path.join(__dirname, "post.jpg");
