@@ -8,7 +8,7 @@ module.exports.config = {
     version: "1.0.1",
     aliases: ["info", "owner", "Owner", "Info", "in", "fo"],
     role: 0,
-    credits: "cliff",
+    credits: "ericson",
     description: "Admin and Bot info.",
     cooldown: 5,
     hasPrefix: false,
@@ -83,8 +83,8 @@ module.exports.run = async function({ api, event, args, prefix, admin }) {
         api.sendMessage({
             body: `《《 𝗢𝗪𝗡𝗘𝗥 𝗜𝗡𝗙𝗢 》》
 
-⁂ Bot Name: YAZKYBOT 
-✧ Main admin: 𝗖𝗹𝗶𝗳𝗳𝗩𝗶𝗻𝗰𝗲𝗻𝘁
+⁂ Bot Name: 𝙀𝙧𝙞𝙘𝙨𝙤𝙣
+✧ Main admin: 𝙀𝙧𝙞𝙘𝙨𝙤𝙣 𝙋𝙖𝙨𝙘𝙪𝙖
 ♛ Bot Admin Link: https://www.facebook.com/${admin}
 ❂ Bot Prefix: ${prefix}
 ✫ Files Owner: ${FILESOWNER}
