@@ -4,7 +4,7 @@ module.exports.config = {
   role: 0,
   aliases: [],
   hasPrefix: false,
-  credits: "cliff",
+  credits: "kylepogi",
   description: "",
   usage: "",
   cooldowns: 5,
